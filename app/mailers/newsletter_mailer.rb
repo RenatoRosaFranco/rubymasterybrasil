@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class NewsletterMailer < ApplicationMailer
-  default from: 'marketing@creativelabs.com.br'
+  default from: 'rubymasterybrasil@gmail.com'
 
   def signup(user)
     @user = user

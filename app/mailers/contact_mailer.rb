@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
 class ContactMailer < ApplicationMailer
-
-  default from: 'contato@crativelabs.com.br'
+  default from: 'rubymasterybrasil@gmail.com'
 
   def sended(contact)
     @contact = contact
     mail({
-      to: 'contato@crativelabs.com.br',
-      subject: "Novo e-mail para CreativeLabs enviado por #{contact.name}"
+      to: 'rubymasterybrasil@gmail.com',
+      subject: "Novo e-mail para RubyMastery enviado por #{contact.name}"
     })
   end
 
