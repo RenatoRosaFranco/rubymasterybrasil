@@ -59,6 +59,7 @@ group :development, :test, :production do
   gem 'rails_admin'
   gem 'dotenv-rails'
   gem 'recaptcha', require: 'recaptcha/rails'
+  gem 'pg'
 end
   
 group :development do
