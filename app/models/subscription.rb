@@ -1,8 +1,16 @@
 # frozen_string_literal: true
 
 class Subscription < ApplicationRecord
+	include MailerInterfaceable
+
 	self.table_name = 'subscriptions'
 	self.primary_key = 'id'
+
+	after_create :sendEmail
+
+	def sendEmail
+		mailTo SubscriptionMailer, :signup, self, :deliver_now
+	end
 
 	validates :first_name, :last_name,
 						presence: true,
