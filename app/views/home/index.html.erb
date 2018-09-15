@@ -1,0 +1,422 @@
+<% provide :title, 'Home' %>
+
+<section id="presenter" class="jumbotron">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-5">
+					<%= fa_icon 'github', id: 'brand-icon' %>
+					<h2 class="text-center">RUBY MASTERY</h2>
+					<p class="text-center" style="font-size: 16px; margin-top: -5px">
+					<%= link_to Date.today.year %>&copy Todos os direitos reservados.
+					</p>
+				</div>
+				<div class="col-md-7">
+					<ul class="list-unstyled">
+						<li><h1>O FUTURO<br> COMEÇA AQUI!</h1>
+						<li><p align="justify">Pense, crie, programe, construa. 
+						O futuro está a<br> poucos passos de você.</p></li>
+						<ul class="list-unstyled list-inline">
+							<li><%= link_to 'Registrar-me', '#subscription', 
+							class: 'btn btn-primary btn-lg top' %></li>
+							<li><%= link_to 'Contato', '#contact', 
+							class: 'btn btn-primary btn-lg top' %></li>
+						</ul>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="course">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumb">
+					<li><%= link_to 'Home', root_path %></li>
+				</ul>
+
+				<div class="col-md-4">
+					<div class="jumbotron" style="height: 400px;">
+						<!-- some code here -->
+					</div>
+				</div>
+				<div class="col-md-8">
+					<h2><strong>NOSSOS CURSO</strong></h2>
+
+					<p>Elaboramos nossos cursos para abranger desde
+					iniciantes até usuarios avançados, abstraindo o
+					maximo de informação e preparo do mesmo, sendo 
+					eles:</p><br>
+
+					<ul class="list-unstyled">
+						<div class='col-md-4 text-center'>
+							<div class='panel panel-default padding'>
+								<h4><i class="devicon-ruby-plain"></i></h4>
+								<a href="#programing-logic">Lógica de Programação</a>
+							</div>
+						</div>
+						<div class='col-md-4 text-center'>
+							<div class='panel panel-default padding'>
+								<h4><i class="devicon-ruby-plain"></i></h4>
+								<a href="#oop-programing">Programação Orientada a Objetos</a>
+							</div>
+						</div>
+						<div class='col-md-4 text-center'>
+							<div class='panel panel-default padding'>
+								<h4><i class="devicon-ruby-plain"></i></h4>
+								<a href="#ruby">Linguagem de programação Ruby</a>
+							</div>
+						</div>
+						<div class='col-md-4 text-center'>
+							<div class='panel panel-default padding'>
+								<h4><i class="devicon-rails-plain"></i></h4>
+								<a href="#ruby-on-rails">Ruby on Rails</a>
+							</div>
+						</div>
+						<div class='col-md-4 text-center'>
+							<div class='panel panel-default padding'>
+								<h4><i class="devicon-mysql-plain-wordmark"></i></h4>
+								<a href="#mysql">MySQL</a>
+							</div>
+						</div>
+						<div class='col-md-4 text-center'>
+							<div class='panel panel-default padding'>
+								<h4><%= fa_icon 'github' %></i></h4>
+								<a href="#github">GitHub</a>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="subscription" class="jumbotron" style="margin-top: 50px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-5">
+					
+				</div>
+				<div class="col-md-8">
+					<%= form_for(@subscription, 
+					{url: subscription_path, method: :post, remote: false}) do |f| %>
+						
+							<div class='col-md-6'>	
+									<div class="field">
+										<%= f.label 'Nome' %>
+										<%= f.text_field :first_name, class: 'form-control', required: 'required',
+										placeholder: 'Digite o primeiro nome', autocomplete: 'off' %>
+									</div>
+							</div>
+						 
+						 <div class='col-md-6'>
+								<div class="field">
+										<%= f.label 'Sobrenome' %>
+										<%= f.text_field :last_name, class: 'form-control', required: 'required',
+										placeholder: 'Digite o ultimo nome', autocomplete: 'off' %>
+								</div>
+						 </div>
+
+						 <div class='col-md-4'>
+								<div class='field'>
+										<%= f.label 'Telefone' %>
+										<%= f.text_field :phone, class: 'form-control phone-field', required: 'required',
+										placeholder: 'Digite o telefone', autocomplete: 'off' %>
+								</div>
+						 </div>
+						 <div class='col-md-8'>
+						 		<div class="field">
+										<%= f.label 'Email' %>
+										<%= f.email_field :email, class: 'form-control', required: 'required',
+										placeholder: 'Digite o e-mail', autocomplete: 'off' %>
+								</div>
+							</div>
+							<div class='col-md-6'>
+								<div class="field">
+									<%= f.label 'Data de nascimento' %>
+									<%= f.date_field :birthdate, class: 'form-control', required: 'required',
+									placeholder: 'Digite a data de nascimento', autocomplete: 'off' %>
+								</div>
+							</div>
+							<div class='col-md-6'>
+								<div class="field">
+									<%= f.label 'Genero' %>
+									<%= f.select(:gender, {'Masculino': 'Masculino', 'Feminino': 'Feminino'}, 
+										{prompt: 'Selecione uma opção'}, {class: 'form-control',
+										required: 'required'}) %>
+								</div>
+							</div>
+							<div class='col-md-12'>
+								<div class="field">
+									<%= f.label 'Possui experiencia com desenvolvimento?' %>
+									<%= f.select(:experience, {'Sim': 'Sim', 'Não': 'Não'},
+										{prompt: 'Selecione uma opção'}, {class: 'form-control',
+										required: 'required'}) %>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class='col-md-12'>
+									<br>
+									<div class='col-md-12'>
+										<%= f.label 'Selecione os quais você tem experiencia' %>
+									</div>
+									<div class="col-md-3">
+										<div class='panel panel-default padding'>
+											<%= f.label :ruby %>
+											<%= f.check_box :ruby %>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class='panel panel-default padding'>
+											<%= f.label :rails %>
+											<%= f.check_box :rails %>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class='panel panel-default padding'>
+											<%= f.label :mysql %>
+											<%= f.check_box :mysql %>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="panel panel-default padding">
+											<%= f.label :git %>
+											<%= f.check_box :git %>
+										</div>
+									</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class='col-md-12'>
+									<%= recaptcha_tags	%>
+								</div>
+							</div>
+
+							<div class="col-md-12 field">
+								<div class='col-md-12'><br>
+									<%= f.submit 'Inscreva-me', class: 'btn btn-primary btn-lg top' %>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="developer" style="padding-top: 50px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-5">
+					 <div class="jumbotron" style="height: 400px;">
+					 		<!-- some code here -->
+					 </div>
+				</div>
+				<div class="col-md-7">
+					<h2><strong>CARREIRA DESENVOLVEDOR</strong></h2>
+					<br>
+					<p>Em adicional nós lhe ajudamos a desenvolver
+					sua carreira e seu perfil como programador, 
+				  construção de um curriculo totalmente inovador
+					e eficaz para a tão desejada vaga de trabalho</p>
+					<br>
+
+					<div class='col-md-6'>	
+						<div class='panel panel-default padding'>
+							<a href="#personal-profile">
+								Construção de pefil poderoso
+							</a>
+						</div>
+					</div>
+
+					<div class='col-md-6'>
+						<div class='panel panel-default padding'>
+							<a href="#github-profile">
+								Construção de github eficaz
+							</a>
+						</div>
+					</div>
+
+					<div class='col-md-6'>
+						<div class='panel panel-default padding'>
+							<a href="#teamlead-profile">
+								Construção de perfil para lider
+							</a>
+						</div>
+					</div>
+
+					<div class='col-md-6'>
+						<div class="panel panel-default padding">
+							<a href="#entrepreneur-profile">
+								Perfil empreendedor
+							</a>
+						</div>
+					</div>
+					
+					<div class="col-md-6">
+						<div class="panel panel-default padding">
+							<a href="#colaborative-profile">
+								Perfil colaborativo
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>		
+	</div>	
+</section>
+
+<section id="social" class="jumbotron" style="margin-top: 50px; margin-bottom: 50px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-6">
+					<ul class="list-unstyled">
+					 	 <li><h3>Siga-nos no <strong>Twitter</strong></h3></li>
+					 	 <li><p>Tweets por <%= link_to '@rubymasterybrasil' %></p></li>
+					 	 <li><hr></li>
+					</ul>
+
+					 	<div class="col-md-12" style="background-color: #999; height: 300px;
+					 	width: 80%;">
+					 		
+					 	</div>
+				</div>
+				<div class="col-md-6">
+						<ul class="list-unstyled">
+							<li><h3><strong>NEWSLETTER</strong></h3></li>
+							<li><p>Inscreva-se em nossa newsletter e fique por dentro de todas
+							as nossas novidades.</p></li>
+						</ul>
+
+						<%= form_for(@newsletter, 
+						{url: newsletter_path, method: :post}) do |f| %>
+							<div class="field"> 
+								<%= f.label :name %>
+								<%= f.text_field :name, class: 'form-control', required: 'required',
+									placeholder: 'Digite o nome', autocomplete: 'off' %>
+							</div>
+							<div class="field">
+								<%= f.label :email %>
+								<%= f.email_field :email, class: 'form-control', required: 'required',
+								placeholder: 'Digite o e-mail', autocomplete: 'off' %>
+							</div>
+							<div class="field pull-right"><br>
+								<%= recaptcha_tags %>
+							</div>
+							<div class="field"><br>
+								<%= f.submit 'Inscreva-me', class: 'btn btn-primary btn-lg top' %>
+							</div>
+						<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="testimonials" style="margin-bottom: 50px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				
+				<div class='col-md-12'>
+					<ul class="list-unstyled">
+						<li><h2>DEPOIMENTOS</h2></li>
+						<li><p>Não tome nossa palavra, mas sim de quem estudou conosco.</p></li>
+						<li><hr></li>
+					</ul>
+				</div>
+
+				<% for i in 1..3 %>
+					<div class="col-md-4">
+						<div class="panel panel-default">
+							<ul class="list-unstyled padding">
+								<li class="text-center"><%= image_tag('', class: 'avatar text', style: 'width: 120px; height: 120px; border-radius: 120px; background-color: #EEE;') %></li>
+								<li><h3 class="text-center"><strong>JOHN DOE</strong></h3></li>
+								<li><h4 class="text-center">CEO and Chairman</h4></li><br>
+								<li>
+									<blockquote>
+										" I was looking for something
+										diferent to help my child grow up
+										in an interessting way. We found
+										that there at Elementary School"
+									</blockquote>
+								</li>
+							</ul>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="contact" style="background: #EEE;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="text-center list-unstyled">
+					<li><h1>CONTATO</h1></li>
+					<li><p>Entre em contato conosco.</p></li>
+					<li><br></li>
+				</ul>
+
+			<div class='panel panel-defaut padding col-md-12'>
+				<%= form_for(@contact, 
+				{url: contact_path, method: :post}) do |f| %>
+					<div class="field">
+						<div class='col-md-6'>
+							<%= f.label 'Nome' %>
+							<%= f.text_field :name, class: 'form-control', required: 'required',
+							placeholder: 'Digite o nome', autocomplete: 'off' %>
+ 						</div>
+ 					</div>
+					<div class="field">
+						<div class='col-md-6'>
+							<%= f.label 'Telefone' %>
+							<%= f.phone_field :phone, class: 'form-control phone-field', required: 'required', placeholder: 'Digite o telefone', autocomplete: 'off' %>
+						</div>
+					</div>
+					<div class="field">
+						<div class='col-md-7'>
+							<%= f.label 'E-mail' %>
+							<%= f.email_field :email, class: 'form-control', required: 'required',
+							placeholder: 'Digite o e-mail', autocomplete: 'off' %>
+						</div>
+					</div>
+					<div class="field">
+						<div class="col-md-5">
+							<%= f.label 'Assunto' %>
+							<%= f.text_field :subject, class: 'form-control', required: 'required',
+							placeholder: 'Digite o assunto', autocomplete: 'off' %>
+						</div>
+					</div>
+					<div class="field">
+						<div class='col-md-12'>
+							<%= f.label 'Mensagem' %>
+							<%= f.text_area :message, class: 'form-control', required: 'required',
+							placeholder: 'Digite a mensagem', autocomplete: 'off' %>
+						</div>
+					</div>
+					<div class="field">
+						<div class="col-md-12"><br>
+							<%= recaptcha_tags %>
+						</div>
+					</div>
+					<div class="field">
+						<div class='col-md-12 text-center'><br>
+							<%= f.submit 'Enviar Mensagem', class: 'btn btn-primary btn-lg top' %>
+						</div>
+					</div>
+				<% end %>
+				</div>
+ 			</div>
+		</div>
+	</div>
+</section>
